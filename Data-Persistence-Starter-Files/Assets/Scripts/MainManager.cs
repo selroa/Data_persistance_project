@@ -72,5 +72,11 @@ public class MainManager : MonoBehaviour
     {
         m_GameOver = true;
         GameOverText.SetActive(true);
+        //conditional for checking highscore
+        if (m_Points > DataPersistance.Instance.highScore)
+        {
+            DataPersistance.Instance.bestPlayer = DataPersistance.Instance.playerName;
+            DataPersistance.Instance.highScore = m_Points;
+        }
     }
 }
